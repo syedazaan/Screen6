@@ -1,3 +1,4 @@
+import { Item } from 'native-base';
 import React from 'react';
 import { StyleSheet,Text,View,  Image,
   ImageBackground,
@@ -19,9 +20,12 @@ import { StyleSheet,Text,View,  Image,
   
   const data = [
     {
-      icon1: myIcon7,
+      icon1:myIcon7 ,
+      // backgroundColor1:"backgroundColor:'rgb(134,115,252)'",
       icon2: "a",
       description: "3 Devices",
+      color:"red",
+      // id:'rgb(134,115,252)',
 
       title: "Living Room"
     },
@@ -30,7 +34,7 @@ import { StyleSheet,Text,View,  Image,
       icon1: myIcon8,
       icon2: "a",
       description: "6 Devices",
-
+      color:"red",
       title: "Bedroom"
     },
 
@@ -38,12 +42,13 @@ import { StyleSheet,Text,View,  Image,
       icon1: myIcon9,
       icon2: "a",
       description: "5 Devices",
-
+      color:"green",
       title: "Dining Room"
     },
     
     {
       icon1: myIcon10,
+      color:"red",
       icon2: "a",
       description: "3 Devices",
 
@@ -204,7 +209,7 @@ export default class App extends React.Component {
                         <Text style={styles.leftRoomsblock1}>Rooms</Text>
                         </View>
                   
-                  <View style={styles.leftemptyyouroomsblock}></View>
+                       <View style={styles.leftemptyyouroomsblock}></View>
                 </View>
          
                  <View style={styles.rightviewblock}>
@@ -222,6 +227,9 @@ export default class App extends React.Component {
               // style={{flex:1}}
               contentContainerStyle={{flex:1,}}
               numColumns={2}
+
+
+              
             
                data={this.state.data}
                renderItem={({item: rowData}) =>  {
@@ -232,14 +240,23 @@ export default class App extends React.Component {
                        
                   <View style={{flexDirection:'row', borderWidth:1,}}>
                       
-                      <View style={{borderWidth:1,alignItems:'flex-start',justifyContent:'center',}}>
+                      <View style={{borderWidth:1,borderRadius:12,   alignItems:'flex-start',justifyContent:'center',backgroundColor:rowData.color}}>
+                       <Item
+                             
+                        backgroundColor={{backgroundColor:'red'}}
+
+                       />
+                       
+                        {/* <Text>     keyExtractor={item => item.id}    </Text> */}
+                         {/* <Text>     {rowData.backgroundColor1}   </Text> */}
                           <Text style={{fontSize:20, borderWidth:1,}}>{rowData.icon1}</Text>
                        </View>
                      
-                     <View style={{borderWidth:1,marginRight:45}}></View>
+                     <View style={{borderWidth:1,marginRight:38}}></View>
                      
-                      <View style={{borderWidth:1,alignItems:'flex-end',justifyContent:'center'}}>
-                          <Text>{myIcon6}</Text>
+                      <View style={{borderWidth:1,backgroundColor:'rgb(244,246,249)', borderRadius:100, width:28,height:28,marginTop:13,  alignItems:'center', justifyContent:'center'}}>
+                         <Text style={{borderWidth:1,margin:10, width:18,height:18}}>{myIcon6}</Text>
+                          
                       </View>
                   </View>
 
@@ -399,11 +416,11 @@ const styles =StyleSheet.create({
     borderWidth:1,
   },
   headericon:{
-      flex:1.2,
+      flex:1,
       alignItems:'center',
       justifyContent:'center',
       backgroundColor:'lightgray',
-      borderRadius:15,
+      borderRadius:10,
       margin:3,
       borderWidth:1,
   },
@@ -470,6 +487,7 @@ const styles =StyleSheet.create({
     flex:2,
     alignItems:'center',
     justifyContent:'center',
+    marginTop:10,
     borderWidth:1,
   },
 
