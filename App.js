@@ -5,17 +5,21 @@ import { StyleSheet,Text,View,  Image,
 
   import Icon from 'react-native-vector-icons/FontAwesome';
   import Iconi from 'react-native-vector-icons/FontAwesome5';
+  import Iconss from 'react-native-vector-icons/MaterialCommunityIcons';
   const myIcon = <Icon name="user" size={40} color="#a5a5a5" />;
   const myIcon1 = <Icon name="bell" size={23} color="#a5a5a5" />;
   const myIcon2 = <Icon name="th-large" size={27} color="#0A2866" />;
   const myIcon4 = <Icon name="plus-circle" size={40} color="#5C41FF" />;
   const myIcon5 = <Iconi name="cloud-sun-rain" size={40} color="#ffffff" />;
+  const myIcon6 = <Icon name="power-off" size={18} color="#5E6CFD" />;
+  const myIcon7=<Iconss name="sofa" size={45} color="#5E6CFD" />;
+  const myIcon8=<Iconss name="bed-empty" size={45} color="#1CBFF2" />;
+  const myIcon9=<Iconss name="food" size={45} color="#9851F2" />;
+  const myIcon10=<Iconss name="shower" size={45} color="#FDAD0E" />;
   
-  
-
   const data = [
     {
-      icon1: "i",
+      icon1: myIcon7,
       icon2: "a",
       description: "3 Devices",
 
@@ -23,27 +27,27 @@ import { StyleSheet,Text,View,  Image,
     },
     
     {
-      icon1: "i",
+      icon1: myIcon8,
       icon2: "a",
-      description: "3 Devices",
+      description: "6 Devices",
 
-      title: "Living Room"
+      title: "Bedroom"
     },
 
     {
-      icon1: "i",
+      icon1: myIcon9,
       icon2: "a",
-      description: "3 Devices",
+      description: "5 Devices",
 
-      title: "Living Room"
+      title: "Dining Room"
     },
     
     {
-      icon1: "i",
+      icon1: myIcon10,
       icon2: "a",
       description: "3 Devices",
 
-      title: "Living Room"
+      title: "Bathroom"
     },
   
   ];
@@ -215,8 +219,8 @@ export default class App extends React.Component {
        
        <FlatList
              
-              style={{flex:1}}
-              contentContainerStyle={{flex:1}}
+              // style={{flex:1}}
+              contentContainerStyle={{flex:1,}}
               numColumns={2}
             
                data={this.state.data}
@@ -224,9 +228,37 @@ export default class App extends React.Component {
                console.log('Image',rowData.imageUrl,rowData);
           
           return( 
-         <View>
-         
-                  <View style={styles.rightsquare1block}>
+         <View style={{flex:1,borderWidth:1,borderRadius:15,padding:25,marginTop:10,}}>
+                       
+                  <View style={{flexDirection:'row', borderWidth:1,}}>
+                      
+                      <View style={{borderWidth:1,alignItems:'flex-start',justifyContent:'center',}}>
+                          <Text style={{fontSize:20, borderWidth:1,}}>{rowData.icon1}</Text>
+                       </View>
+                     
+                     <View style={{borderWidth:1,marginRight:45}}></View>
+                     
+                      <View style={{borderWidth:1,alignItems:'flex-end',justifyContent:'center'}}>
+                          <Text>{myIcon6}</Text>
+                      </View>
+                  </View>
+
+                    <View style={{borderWidth:1,}}>
+                         <View style={{borderWidth:1,}}>
+                               <Text style={{fontSize:20,fontWeight:'bold', color:'rgb(50,75,127)',}}>
+                                      {rowData.title}
+                                </Text>
+                          </View>
+                       
+                         <View style={{borderWidth:1,}}>
+                                  <Text style={{fontSize:15,fontWeight:'900',color:'rgb(179,189,208)',}}>
+                                      {rowData.description}
+                                  </Text>
+                          </View>
+                    
+                    </View>
+                    
+                  {/* <View style={styles.rightsquare1block}>
                       
                            <View style={styles.toprightsquare1block}>
           
@@ -270,7 +302,7 @@ export default class App extends React.Component {
          
                            </View>
        
-                   </View>
+                   </View> */}
        
          </View>
 
